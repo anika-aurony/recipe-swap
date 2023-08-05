@@ -23,10 +23,10 @@ const SingleRecipePage = ({ params: { id } }) => {
     console.log(data)
     let singleMeal = data && data[0]
     return (
-        <div className='container mx-auto py-10'>
+        <div className='container mx-auto py-10 '>
             {data &&
                 <div className='card'>
-                    <div className="flex justify-center ">
+                    <div className="flex justify-center flex-col md:flex-row lg:flex-row ">
                         <figure className='flex-1'><Image
                             className="w-11/12   "
                             src={singleMeal.strMealThumb}
@@ -65,9 +65,9 @@ const SingleRecipePage = ({ params: { id } }) => {
                         </div>
                     </div>
 
-                    <div className='mt-10'>
+                    <div className='mt-10 px-4'>
                         <h6 className='text-xl mb-2 bold'>Instruction:</h6>
-                        <p>{singleMeal.strInstructions}</p></div>
+                        <p >{singleMeal.strInstructions}</p></div>
                 </div>
 
             }
