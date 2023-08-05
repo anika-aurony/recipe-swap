@@ -25,16 +25,20 @@ export const fetchSingleMealData = createAsyncThunk('meal/fetchSingleMealData', 
   const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
   return response.data.meals;
 });
+export const fetchCategoryMealData = createAsyncThunk('meal/fetchCategoryMealData', async (category) => {
+  const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+  return response.data.meals;
+});
+export const fetchIngredientMealData = createAsyncThunk('meal/fetchIngredientMealData', async (ingredient) => {
+  const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+  return response.data.meals;
+});
 
 
 const mealSlice = createSlice({
   name: 'meal',
   initialState,
-  reducers: {
-    
-    // sort: (state) => state.slice().sort((a, b) => a.strMeal.localeCompare(b.strMeal))
-  },
-  
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchMealData.pending, (state) => {
@@ -67,6 +71,28 @@ const mealSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(fetchSortedMealData.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      .addCase(fetchCategoryMealData.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchCategoryMealData.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.data = action.payload;
+      })
+      .addCase(fetchCategoryMealData.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      .addCase(fetchIngredientMealData.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchIngredientMealData.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.data = action.payload;
+      })
+      .addCase(fetchIngredientMealData.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });

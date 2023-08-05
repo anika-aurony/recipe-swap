@@ -16,8 +16,9 @@ const ShowRecipe = ({meal}) => {
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{meal.strMeal}</h2>
-                
+                {meal.strCategory &&
                 <p><span className='text-l'>Category:</span> <strong>{meal.strCategory}</strong></p>
+            }
                 <div className="card-actions justify-end mt-3">
                     <button className="btn bg-[#b91c1c] text-[white]">
                         <Link href={`/${meal.idMeal}`}> View Details </Link>
