@@ -57,13 +57,13 @@ const MyRecipes = () => {
     return (
         <div>
 
-            <div className='w-11/12 mx-auto flex  justify-between '>
+            <div className='w-5/6 mx-auto flex  justify-between '>
                 <div className='flex me-10'>
                     <input type="text" placeholder="Search By Category" value={searchTerm1} onChange={handleCategoryInputChange} className="input input-bordered input-primary w-full max-w-xs" />
-                    <button className="btn bg-[#b91c1c] text-[white] ms-3" onClick={handleSearchCategory}>Search</button>
+                    <button className="btn bg-[#b91c1c] text-[white] ms-3 " onClick={handleSearchCategory}>Search</button>
                 </div>
                 <div className='flex me-10'>
-                    <input type="text" placeholder="Search By Main Ingredient" value={searchTerm2} onChange={handleIngredientInputChange} className="input input-bordered input-primary w-full max-w-xs" />
+                    <input type="text" placeholder="Search By Main Ingredient" value={searchTerm2} onChange={handleIngredientInputChange} className="input input-bordered input-primary w-full max-w-xs w-full" />
                     <button className="btn bg-[#b91c1c] text-[white] ms-3" onClick={handleIngredientSearch}>Search</button>
                 </div>
                 <div className='flex'>
@@ -75,7 +75,7 @@ const MyRecipes = () => {
             </div>
 
             {data && data.length > 0 ? (
-                <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-3 lg:text-left w-11/12 mx-auto">
+                <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-3 lg:text-left w-11/12 mx-auto ps-10">
                     {data.map((meal) => (
 
                         <div key={meal.idMeal} >
