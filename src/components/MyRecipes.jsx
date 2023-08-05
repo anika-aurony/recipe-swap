@@ -57,19 +57,22 @@ const MyRecipes = () => {
     return (
         <div>
 
-            <div className='w-10/12 mx-auto flex  justify-between '>
-                <div className='flex me-10'>
+            <div className='md:w-11/12 lg:w-full mx-auto grid text-center lg:mb-0 md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-4  gap-10'>
+                <div className='flex  '>
                     <input type="text" placeholder="Search By Category" value={searchTerm1} onChange={handleCategoryInputChange} className="input input-bordered input-primary w-full max-w-xs" />
                     <button className="btn bg-[#b91c1c] text-[white] ms-3 " onClick={handleSearchCategory}>Search</button>
                 </div>
-                <div className='flex me-10'>
-                    <input type="text" placeholder="Search By Main Ingredient" value={searchTerm2} onChange={handleIngredientInputChange} className="input input-bordered input-primary w-full max-w-xs w-full" />
+                <div className='flex '>
+                    <input type="text" placeholder=" By Main Ingredient" value={searchTerm2} onChange={handleIngredientInputChange} className="input input-bordered input-primary w-full max-w-xs w-full" />
                     <button className="btn bg-[#b91c1c] text-[white] ms-3" onClick={handleIngredientSearch}>Search</button>
                 </div>
-                <div className='flex'>
+                <div className='flex '>
                     <input type="text" placeholder="Search By Name" value={searchTerm} onChange={handleInputChange} className="input input-bordered input-primary w-full max-w-xs" />
                     <button className="btn bg-[#b91c1c] text-[white] ms-3" onClick={handleSearch}>Search</button>
-                    <button className="btn bg-[#b91c1c] text-[white] ms-10 border-none justify-end" onClick={handleFilter}>Sort <AiOutlineSortAscending className='text-xl' /></button>
+
+                </div>
+                <div className=''>
+                    <button className="btn bg-[#b91c1c] text-[white] border-none justify-end" onClick={handleFilter}>Sort <AiOutlineSortAscending className='text-xl' /></button>
                 </div>
 
             </div>

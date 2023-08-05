@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 const ShowRecipe = ({meal}) => {
     return (
-        <div className="card card-compact w-9/12 my-8 bg-base-100 shadow-xl">
+        <div className="card card-compact w-9/12 my-8 bg-base-100 shadow-xl ">
             <figure>
                 <Image
                     className="w-full"
