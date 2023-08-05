@@ -1,8 +1,9 @@
 "use client"
-import { fetchMealData } from '@/redux/slices/mealSlice';
+import { fetchMealData, fetchSortedMealData } from '@/redux/slices/mealSlice';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ShowRecipe from './ShowRecipe';
+import { AiOutlineSortAscending } from 'react-icons/ai';
 
 const MyRecipes = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -28,13 +29,19 @@ const MyRecipes = () => {
     const handleSearch = () => {
         dispatch(fetchMealData(searchTerm));
     };
+    const handleFilter = () =>{
+        
+        dispatch(fetchSortedMealData(searchTerm || 'sa'));
+        
+    }
 
     return (
         <div>
 
-            <div className='w-1/3 mx-auto'>
+            <div className='w-1/2 mx-auto'>
                 <input type="text" placeholder="Type here" value={searchTerm} onChange={handleInputChange} className="input input-bordered input-primary w-full max-w-xs" />
-                <button className="btn bg-[#b91c1c] text-[white] ms-8" onClick={handleSearch}>Search</button>
+                <button className="btn bg-[#b91c1c] text-[white] ms-3" onClick={handleSearch}>Search</button>
+                <button className="btn bg-[#b91c1c] text-[white] ms-10  border-none justify-end" onClick={handleFilter}>Sort <AiOutlineSortAscending className='text-xl'/></button>
             </div>
 
             {data && data.length > 0 ? (
